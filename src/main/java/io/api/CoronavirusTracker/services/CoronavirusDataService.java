@@ -19,6 +19,7 @@ public class CoronavirusDataService {
 
 	@PostConstruct
 	public CoronavirusDataEntity fetchUpdatedData() {
+		System.out.println("fetchUpdatedData(+)");
 
 		final HttpHeaders headers = new HttpHeaders();
 		headers.set("x-rapidapi-host", "covid-19-coronavirus-statistics.p.rapidapi.com");
@@ -34,6 +35,8 @@ public class CoronavirusDataService {
 		System.out.println("responseEntity: "+responseEntity);
 		
 		CoronavirusDataEntity response = responseEntity.getBody();
+		
+		System.out.println("fetchUpdatedData(-)");
 		return response;
 	}
 
